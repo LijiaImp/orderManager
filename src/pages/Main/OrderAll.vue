@@ -14,7 +14,7 @@
         <el-button type="primary" @click="searchBtn">查询</el-button>
       </div>
     </div>
-    <div id="main" style="height:400px;width: 100%; "></div>
+    <div id="main" style="height:500px;width: 100%; "></div>
   </div>
 </template>
 
@@ -25,7 +25,7 @@ import { getDate } from "@/utils/utils";
 export default {
   data() {
     return {
-      date: [],
+      date: ["2020-06-04 00:00:00", "2020-06-05 00:00:00"],
     };
   },
   methods: {
@@ -66,7 +66,7 @@ export default {
   },
   mounted() {
     this.myChart = echarts.init(document.querySelector("#main"));
-    // this. echartsFn(["2020-06-04 00:00:00", "2020-06-05 00:00:00"])
+    this. echartsFn(JSON.stringify(["2020-06-04 00:00:00", "2020-06-05 00:00:00"]))
   },
 
 };
@@ -74,7 +74,7 @@ export default {
 
 <style lang="less" scoped>
 #main{
-  background-color: #fff;
+  // background-color: #fff;
   margin-top: 30px;
 }
 </style>

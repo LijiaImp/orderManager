@@ -1,34 +1,43 @@
 <template>
   <div>
-    <div class="money">
-      <div class="moenyBox">
-        <img src="../../assets/images/order_icon.png" alt />
-        <div>
-          <span style="margin:6px 0; display:inline-block">总订单</span>
-          <p>{{totalOrder}}单</p>
+  
+    <div class="card">
+      <el-card class="box-card">
+        <div class="el-card__body">
+          <div class="el-icon-document ic"></div>
+          <div>
+            <p >总订单</p>
+            <strong >{{totalOrder}}单</strong>
+          </div>
         </div>
-      </div>
-      <div class="moenyBox">
-        <img src="../../assets/images/money_icon.png" alt />
-        <div>
-          <span style="margin:6px 0; display:inline-block">总金额</span>
-          <p>{{totalAmount}}元</p>
+      </el-card>
+      <el-card class="box-card">
+        <div class="el-card__body">
+          <div class="el-icon-coin ic" style="color:#D4237A"></div>
+          <div>
+            <p>总销售额</p>
+            <strong>{{totalAmount}}元</strong>
+          </div>
         </div>
-      </div>
-      <div class="moenyBox">
-        <img src="../../assets/images/today_order_icon.png" alt />
-        <div>
-          <span style="margin:6px 0; display:inline-block">今日订单</span>
-          <p>{{todayOrder}}单</p>
+      </el-card>
+      <el-card class="box-card">
+        <div class="el-card__body">
+          <div class="el-icon-s-order ic"></div>
+          <div>
+            <p>今日订单数</p>
+            <strong>{{todayOrder}}单</strong>
+          </div>
         </div>
-      </div>
-      <div class="moenyBox">
-        <img src="../../assets/images/today_money_icon.png" alt />
-        <div>
-          <span style="margin:6px 0; display:inline-block">今日金额</span>
-          <p>{{totayAmount}}元</p>
+      </el-card>
+      <el-card class="box-card">
+        <div class="el-card__body">
+          <div class="el-icon-money ic" style="color:#1AFA29"></div>
+          <div>
+            <p>今日销售额</p>
+            <strong>{{totayAmount}}元</strong>
+          </div>
         </div>
-      </div>
+      </el-card>
     </div>
     <div id="main" style="height:400px;"></div>
   </div>
@@ -37,7 +46,7 @@
 <script>
 import { index } from "@/api/apis";
 import echarts from "echarts";
-import {numberToCurrency} from '@/utils/utils';
+import { numberToCurrency } from "@/utils/utils";
 export default {
   data() {
     return {
@@ -54,7 +63,7 @@ export default {
     let myChart = echarts.init(document.querySelector("#main"));
     index().then((res) => {
       console.log(res.data);
-      this.totalOrder =numberToCurrency(res.data.totalOrder) ;
+      this.totalOrder = numberToCurrency(res.data.totalOrder);
       this.totalAmount = numberToCurrency(res.data.totalAmount);
       this.todayOrder = numberToCurrency(res.data.todayOrder);
       this.totayAmount = numberToCurrency(res.data.totalAmount);
@@ -106,34 +115,38 @@ export default {
         ],
       };
 
-       // 使用刚指定的配置项和数据显示图表。
-    myChart.setOption(option);
+      // 使用刚指定的配置项和数据显示图表。
+      myChart.setOption(option);
     });
-
-   
   },
 };
 </script>
 
 <style lang="less" scoped>
-.money {
+
+.card {
   display: flex;
   justify-content: space-between;
-  width: 100%;
-  .moenyBox {
-    width: 18%;
-    display: flex;
-    justify-content: space-between;
-    background-color: #fff;
-    padding: 15px 36px;
-    text-align: center;
-    font-size: 18px;
-    span {
-      color: #ccc;
+  font-size: 14px;
+}
+.box-card {
+  width: 20%;
+  display: flex;
+  .ic {
+    font-size: 40px;
+    color: #1296db;
+  }
+}
+.el-card__body {
+  display: flex;
+  padding: 0;
+  .ic {
+    margin-right: 35px;
+    p {
+      flex-wrap: nowrap;
     }
   }
 }
-
 #main {
   margin-top: 30px;
   background-color: #fff;

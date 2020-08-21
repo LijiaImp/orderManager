@@ -53,7 +53,10 @@
       </el-table-column>
       <el-table-column label="商品图片">
         <template slot-scope="scope">
-          <img :src="scope.row.imgUrl==''?'':GET_PRO_IMG+scope.row.imgUrl" style="width:60px;height:60px" />
+          <img
+            :src="scope.row.imgUrl==''?'':GET_PRO_IMG+scope.row.imgUrl"
+            style="width:60px;height:60px"
+          />
         </template>
       </el-table-column>
       <el-table-column label="商品描述" prop="goodsDesc">
@@ -64,7 +67,7 @@
       <el-table-column label="操作">
         <template slot-scope="scope">
           <el-button size="mini" @click="showBtn(scope.row)">编辑</el-button>
-          <el-button size="mini" type="danger" @click="delBtn(sscope.row)">删除</el-button>
+          <el-button size="mini" type="danger" @click="delBtn(scope.row)">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -111,10 +114,14 @@
             :on-success="handleAvatarSuccess"
             :on-remove="handleRemove"
             :show-file-list="false"
-            style="margin-left:70px"
+            style="margin-left:65px"
           >
             <i v-show="!newobj.imgUrl" class="el-icon-plus"></i>
-            <img style="width: 100px" v-show="newobj.imgUrl" :src="newobj.imgUrl==''?'':GET_PRO_IMG  + newobj.imgUrl" />
+            <img
+              style="width: 100px"
+              v-show="newobj.imgUrl"
+              :src="newobj.imgUrl==''?'':GET_PRO_IMG  + newobj.imgUrl"
+            />
           </el-upload>
         </p>
         <p style="margin-bottom:20px">
@@ -157,7 +164,7 @@ export default {
       dialogVisible: false,
       loading: true,
       newobj: {
-          imgUrl: "",
+        imgUrl: "",
       },
       newstyle: [],
     };
@@ -183,7 +190,7 @@ export default {
       });
     },
     //删除
-    delBtn(index, row) {
+    delBtn(row) {
       this.$confirm("是否删除该条数据", "懒购系统提示", {
         confirmButtonText: "删除",
         cancelButtonText: "取消",

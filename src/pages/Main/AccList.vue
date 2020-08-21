@@ -37,7 +37,7 @@
     </div>
     <p>
       <el-button type="danger" @click="delAll">批量删除</el-button>
-      <el-button type="primary">取消选择</el-button>
+      <el-button type="primary" @click="toggleSelection()">取消选择</el-button>
     </p>
 
     <div class="changeC" v-show="show==false?false:true">
@@ -104,6 +104,15 @@ export default {
     }, 1000);
   },
   methods: {
+    toggleSelection(rows) {
+      if (rows) {
+        rows.forEach((row) => {
+          this.$refs.multipleTable.toggleRowSelection(row);
+        });
+      } else {
+        this.$refs.multipleTable.clearSelection();
+      }
+    },
     handleSelectionChange(val) {
       this.idarr = val.map((item) => item.id);
     },

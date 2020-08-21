@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <el-card class="box-card content">
     <h3>添加账号</h3>
     <div style="margin-top:25px;margin-left:20px">
       <p>
@@ -26,7 +26,7 @@
         <el-button @click="reBtn">重置</el-button>
       </p>
     </div>
-  </div>
+  </el-card>
 </template>
 
 <script>
@@ -48,7 +48,6 @@ export default {
       accVal: "",
       accpwdVal: "",
       msg: "",
-     
     };
   },
   methods: {
@@ -75,7 +74,6 @@ export default {
         }
       });
     },
-   
   },
 };
 </script>
@@ -111,5 +109,4 @@ export default {
     }
   }
 }
-
 </style>

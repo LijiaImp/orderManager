@@ -200,6 +200,11 @@ export default {
          this.loading = false;
       });
     },
+
+    // //index
+    //  indexMethod(index) {
+    //     return index ++;
+    //   }
   },
   created() {
     this.loading = true;

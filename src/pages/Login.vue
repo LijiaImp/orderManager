@@ -8,10 +8,21 @@
         <h3>懒购外卖管理系统</h3>
       </div>
       <div class="loginBox">
-        <el-input prefix-icon="el-icon-user-solid" v-model="acc" placeholder="请输入用户名"></el-input>
-        <el-input prefix-icon="el-icon-lock" show-password v-model="pwd" placeholder="请输入密码"></el-input>
+        <el-input
+          prefix-icon="el-icon-user-solid"
+          v-model="acc"
+          placeholder="请输入用户名"
+          style="margin-top:45px"
+        ></el-input>
+        <el-input
+          prefix-icon="el-icon-lock"
+          show-password
+          v-model="pwd"
+          placeholder="请输入密码"
+          style="margin-top:10px;margin-bottom:10px"
+        ></el-input>
         <p class="error-p">{{msg}}</p>
-        <el-button type="primary" style="width:100%;height:30px;padding:0" @click="loginBtn">登录</el-button>
+        <el-button type="primary" style="width:85%;height:30px;padding:0" @click="loginBtn">登录</el-button>
       </div>
     </div>
   </div>
@@ -63,7 +74,9 @@ export default {
 #loginDiv {
   width: 100%;
   height: 100%;
-  background: url(../assets/images/bg.jpg);
+  background: url(../assets/images/login_bg.jpg);
+  background-size: 60px 100px;
+  // background: #f1f1f1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -74,8 +87,8 @@ export default {
     margin-bottom: 20px;
   }
   .box {
-    width: 480px;
-    // height: 370px;
+    width: 550px;
+    height: 340px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -83,17 +96,17 @@ export default {
     overflow: hidden;
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.5);
     .logoBox {
-      width: 45%;
-      // background-color: #003366;
+      width: 46%;
+      background: url(../assets/images/login_img1.jpg);
       text-align: center;
-      height: 233px;
+      height: 100%;
       display: flex;
       flex-direction: column;
       // justify-content: space-ar;
       // align-items: center;
       //  height: 100%;
       .logo {
-        margin-top: 30px;
+        margin-top: 80px;
         img {
           width: 75px;
           height: 75px;
@@ -108,15 +121,22 @@ export default {
       }
     }
     .loginBox {
-      width: 47%;
-      padding: 40px 20px;
-      // height: 100%;
+      width: 45%;
+      padding: 40px;
+      height: 76%;
       background-color: #fff;
       /deep/.el-input {
         // border: 0;
         border-bottom: 1px solid #dcdfe6;
-        margin-top: 10px;
+
+        background-color: transparent;
+        width: 200px;
+        color: #fff;
         /deep/input {
+          border: 0;
+          background-color: transparent;
+        }
+        .el-input__inner {
           border: 0;
         }
       }

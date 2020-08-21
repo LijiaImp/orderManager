@@ -14,7 +14,7 @@
           </span>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item>
-              <router-link to="/Main/Personal">个人中心</router-link>
+              <router-link to="/Main/Personal" style="text-decoration:none">个人中心</router-link>
             </el-dropdown-item>
             <el-dropdown-item @click.native="delBtn()">退出系统</el-dropdown-item>
           </el-dropdown-menu>
@@ -32,7 +32,7 @@
           class="el-menu-vertical-demo h"
           background-color="#336699"
           text-color="#fff"
-          active-text-color="#FFE91F"
+          active-text-color="#FFFFCC"
           router
           unique-opened
         >
@@ -72,9 +72,9 @@ import { istoken, per } from "../api/apis";
 export default {
   //上帝之眼，观察某个属性变法
   watch: {
-      $route(to){
-      this.breadlist = to.meta.breadlist
-    }
+    $route(to) {
+      this.breadlist = to.meta.breadlist;
+    },
   },
   data() {
     return {
@@ -209,9 +209,9 @@ export default {
 </script>
 
 <style scoped lang='less'>
-.elC{
+.elC {
   height: 100%;
-  .el-container{
+  .el-container {
     height: 80%;
     // flex: 1;
   }
@@ -229,7 +229,7 @@ export default {
 .el-main {
   background-color: #f0f2f5;
   // overflow-y:scroll ;
-height: 100%;
+  height: 100%;
   .crumbs {
     margin-bottom: 20px;
     padding-bottom: 10px;
@@ -240,7 +240,8 @@ height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #003366;
+  background: linear-gradient(  #0099CC,#336699);
+  // background-color: #003366;
   color: #fff;
   padding-left: 10px;
   .headerTitle {
@@ -278,5 +279,8 @@ h3 {
 }
 a {
   color: #000;
+}
+/deep/.el-dropdown-link  {
+  cursor: pointer;
 }
 </style>

@@ -14,7 +14,7 @@
         <el-button type="primary">查询</el-button>
       </div>
     </div>
-    <div style="background-color: #fff;;margin-top:20px;padding:25px 0">
+    <div style="background-color: #fff;;margin-top:20px;padding:20px 0">
       <v-chart class="my-chart" :options="bar" />
     </div>
   </div>

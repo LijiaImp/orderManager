@@ -114,14 +114,9 @@
             v-if="form.avatar"
             :src="GET_STORE_IMG+form.avatar"
             class="avatar"
-            style="width: 100px; height: 100px；margin-left:10px"
+            style="width: 150px; height: 150px;"
           />
-          <img
-            v-else
-            :src="imgUrl"
-            class="avatar"
-            style="width: 100px; height: 100px；margin-left:10px"
-          />
+          <img v-else :src="imgUrl" class="avatar" style="width: 150px; height: 150px;" />
         </el-upload>
       </el-form-item>
       <el-form-item label="店铺图片">
@@ -133,7 +128,8 @@
           :on-remove="handleRemove"
           :on-success="handleImgSuccess"
           :file-list="form.pics"
-          style="margin-left:10px;"
+          :limit="3"
+          :on-exceed="handleExceed"
         >
           <i class="el-icon-plus"></i>
         </el-upload>
@@ -205,6 +201,10 @@ export default {
     };
   },
   methods: {
+    handleExceed() {
+      this.$message.warning(`当前限制选择 3 个文件`);
+    },
+
     //图片
     handleRemove(file) {
       console.log(file, this.form.pics);

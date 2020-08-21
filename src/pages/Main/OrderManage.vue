@@ -1,16 +1,16 @@
 <template>
   <div class="content">
     <div style="  margin-bottom: 40px; padding-top:20px;  padding-left: 15px;" class="divbox">
-      <span>订单号&nbsp;</span>
+      <span style="display:inline-block;text-align:right;width:48px">订单号</span>
       <el-input v-model="orderNo" placeholder="订单号" class="input_height"></el-input>
 
-      <span>收货人&nbsp;</span>
+      <span>收货人</span>
       <el-input v-model="consignee" placeholder="收货人" class="input_height"></el-input>
 
-      <span>手机号&nbsp;</span>
+      <span>手机号</span>
       <el-input v-model="phone" placeholder="手机号" class="input_height"></el-input>
 
-      <span>订单状态</span>
+      <span>订单状态&nbsp;</span>
       <el-select v-model="orderState" placeholder="请选择" class="input_height">
         <el-option
           v-for="item in options"
@@ -335,6 +335,7 @@ export default {
   .el-input {
     width: 16%;
     margin-right: 20px;
+    margin-left: 5px;
   }
 }
 .changeC {

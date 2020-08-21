@@ -28,7 +28,7 @@
           list-type="picture-card"
           :on-success="handleAvatarSuccess"
           :on-remove="handleRemove"
-          style="margin-left:20px"
+          style="margin-left:14px"
         >
           <i class="el-icon-plus"></i>
         </el-upload>
